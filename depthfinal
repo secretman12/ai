@@ -1,0 +1,30 @@
+graph = {
+    'S' : ['A','F','K'],
+    'A':    ['B'],
+    'B' : ['C','G'],
+    'C' : ['D'],
+    'D' : ['E','G'],
+    'E' : [],
+    'F' : ['H'],
+    'H' : ['I'],
+    'I' : ['J'],
+    'J': ['G'],
+    'K' : ['L'],
+    'L' : [],
+    'G' : [],
+}
+
+
+def dfs_paths(graph, start, goal):
+    stack = [(start, [start])]
+    visited = set()
+    while stack:
+        (vertex, path) = stack.pop()
+        if vertex not in visited:
+            if vertex == goal:
+                return path
+            visited.add(vertex)
+            for neighbor in graph[vertex]:
+                stack.append((neighbor, path + [neighbor]))
+
+print (dfs_paths(graph, 'S', 'G'))
