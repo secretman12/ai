@@ -1,0 +1,2 @@
+# ai
+#texniki noimosini sxolis 
